@@ -12,15 +12,20 @@ export default class Display extends React.Component {
     calc_true_count = () => {
         let remaining_cards = (this.props.num_decks*52) - this.props.cards_used;
         let reamining_decks = remaining_cards/52;
-        console.log(this.props.running_count/reamining_decks)
         return this.props.running_count/reamining_decks;
 
+    }
+
+    calc_penetration = () => {
+        let remaining_cards = (this.props.num_decks*52) - this.props.cards_used;
+        return 100*(1 - (remaining_cards/(this.props.num_decks*52)));
     }
 
     render() {
         return (
             <div>
-                <h1>{this.calc_true_count()}</h1>
+                <h1>True Count: {Number(this.calc_true_count()).toFixed(2)}</h1>
+                <h1>Current Deck Penetration: {Number(this.calc_penetration()).toFixed(2)}%</h1>
             </div>
         )
     }

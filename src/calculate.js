@@ -1,5 +1,5 @@
 export default function calculate(state, value) {
-    if(value === 0) {
+    if(value === 2) {
         return {
           running_count: 0,
           cards_used: 0
